@@ -819,3 +819,130 @@
     opacity: 1;
   }
 }
+#userProfile {
+  position: fixed;
+  left: 50%;
+  top: 10px;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(255, 255, 255, 0.95);
+  padding: 10px 15px;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+  z-index: 1000;
+  transition: all 0.3s ease;
+  width: 220px;
+  max-width: 90vw;
+}
+
+#userAvatar {
+  width: 40px;
+  height: 40px;
+  min-width: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #ffd936;
+}
+
+.user-info {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+}
+
+#userName {
+  font-weight: 600;
+  font-size: 14px;
+  color: #536942;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.score-container {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: rgba(255, 217, 54, 0.1);
+  padding: 2px 8px;
+  border-radius: 12px;
+  margin-top: 2px;
+}
+
+.score-container img {
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
+}
+
+#userScore {
+  color: #536942;
+  font-size: 14px;
+  font-weight: 600;
+  min-width: 40px;
+}
+
+/* Animation khi cập nhật điểm */
+@keyframes scoreUpdate {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.score-updated {
+  animation: scoreUpdate 0.3s ease-in-out;
+}
+
+/* Media queries cho mobile */
+@media (max-width: 768px) {
+  #userProfile {
+    top: 10px;
+    width: 200px;
+    padding: 8px 12px;
+  }
+
+  #userAvatar {
+    width: 36px;
+    height: 36px;
+    min-width: 36px;
+  }
+
+  #userName {
+    font-size: 13px;
+  }
+
+  .score-container {
+    padding: 1px 6px;
+  }
+
+  #userScore {
+    font-size: 13px;
+  }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  #userProfile {
+    background: rgba(30, 30, 30, 0.95);
+  }
+
+  #userName,
+  #userScore {
+    color: #fff;
+  }
+
+  .score-container {
+    background: rgba(255, 217, 54, 0.15);
+  }
+}
