@@ -1,4 +1,3 @@
-
 .timeline img {
   border: 0;
   max-width: 100%;
@@ -111,7 +110,7 @@
   top: 23px;
   left: 50%;
   text-align: center;
-  background: #2196F3;
+  background: #2196f3;
   color: #fff;
   width: 25px;
   height: 25px;
@@ -125,7 +124,7 @@
   z-index: 1;
 }
 .timeline-panel {
-	/* display:flex */
+  /* display:flex */
 }
 .tl-heading h4 {
   margin: 0;
@@ -143,47 +142,47 @@
 }
 @media (max-width: 991px) {
   .timeline li .timeline-panel {
-      width: 44%;
+    width: 44%;
   }
 }
 @media (max-width: 700px) {
   ul.timeline:before {
-      left: 40px;
+    left: 40px;
   }
   .tldate {
-      width: 140px;
+    width: 140px;
   }
   ul.timeline li .timeline-panel {
-      width: calc(100% - 90px);
-      width: -moz-calc(100% - 90px);
-      width: -webkit-calc(100% - 90px);
+    width: calc(100% - 90px);
+    width: -moz-calc(100% - 90px);
+    width: -webkit-calc(100% - 90px);
   }
   ul.timeline li .tl-circ {
-      top: 22px;
-      left: 28px;
-      margin-left: 0;
+    top: 22px;
+    left: 28px;
+    margin-left: 0;
   }
   ul.timeline > li > .tldate {
-      margin: 0;
+    margin: 0;
   }
   ul.timeline > li > .timeline-panel {
-      float: right;
+    float: right;
   }
   ul.timeline > li > .timeline-panel:before {
-      border-left-width: 0;
-      border-right-width: 15px;
-      left: -15px;
-      right: auto;
+    border-left-width: 0;
+    border-right-width: 15px;
+    left: -15px;
+    right: auto;
   }
   ul.timeline > li > .timeline-panel:after {
-      border-left-width: 0;
-      border-right-width: 14px;
-      left: -14px;
-      right: auto;
+    border-left-width: 0;
+    border-right-width: 14px;
+    left: -14px;
+    right: auto;
   }
   .timeline-panel {
     display: block;
-}
+  }
 }
 .timeline .text-muted {
   padding: 5px;
@@ -191,21 +190,203 @@
   color: white;
   border-radius: 5px;
 }
-.timeline .desc{
-margin-top: 20px;
-/* color: #687383; */
-/* font-size:  14px; */
-line-height: 24px;
+.timeline .desc {
+  margin-top: 20px;
+  /* color: #687383; */
+  /* font-size:  14px; */
+  line-height: 24px;
 }
-.be-pack.timeline .timeline_pic{
- padding: 0px 15px 0px 0px;
+.be-pack.timeline .timeline_pic {
+  padding: 0px 15px 0px 0px;
 }
-.be-title{
-	display:inline-block
+.be-title {
+  display: inline-block;
 }
-.tl-content img{
-	float:left
+.tl-content img {
+  float: left;
 }
-.be-content p{
-	margin-bottom:5px
+.be-content p {
+  margin-bottom: 5px;
+}
+
+/* Combo Container */
+.combo-container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  z-index: 9999;
+  pointer-events: none;
+}
+
+/* Combo Counter */
+.combo-counter {
+  font-size: 64px;
+  font-weight: bold;
+  color: #ffd700;
+  text-shadow: 0 0 10px rgba(255, 215, 0, 0.5), 0 0 20px rgba(255, 215, 0, 0.3),
+    0 0 30px rgba(255, 215, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+/* Combo Score */
+.combo-score {
+  font-size: 48px;
+  font-weight: bold;
+  color: #ff4081;
+  text-shadow: 0 0 10px rgba(255, 64, 129, 0.5),
+    0 0 20px rgba(255, 64, 129, 0.3), 0 0 30px rgba(255, 64, 129, 0.1);
+}
+
+/* Combo Timer */
+.combo-timer {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 300px;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.combo-timer::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(90deg, #ffd700, #ff4081);
+  transition: width 0.1s linear;
+}
+
+/* Floating Score */
+.floating-score {
+  position: absolute;
+  font-size: 32px;
+  font-weight: bold;
+  color: #fff;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  pointer-events: none;
+  animation: floatUp 1s ease-out forwards;
+  z-index: 9999;
+}
+
+/* Combo Animations */
+.pulse {
+  animation: pulse 0.5s ease-in-out;
+}
+
+.bounce {
+  animation: bounce 0.5s cubic-bezier(0.36, 0, 0.66, -0.56);
+}
+
+.shake {
+  animation: shake 0.5s ease-in-out;
+}
+
+.rotate {
+  animation: rotate 0.5s ease-in-out;
+}
+
+/* Combo Types */
+.good-combo .combo-counter {
+  color: #4caf50;
+  font-size: 72px;
+}
+
+.super-combo .combo-counter {
+  color: #2196f3;
+  font-size: 84px;
+}
+
+.ultimate-combo .combo-counter {
+  color: #ff4081;
+  font-size: 96px;
+  animation: glow 1s ease-in-out infinite alternate;
+}
+
+/* Animation Keyframes */
+@keyframes floatUp {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100px) scale(1.5);
+    opacity: 0;
+  }
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+}
+
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-10px);
+  }
+  75% {
+    transform: translateX(10px);
+  }
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes glow {
+  0% {
+    text-shadow: 0 0 10px #ff4081, 0 0 20px #ff4081, 0 0 30px #ff4081;
+  }
+  100% {
+    text-shadow: 0 0 20px #ff4081, 0 0 30px #ff4081, 0 0 40px #ff4081,
+      0 0 50px #ff4081;
+  }
+}
+
+/* Score Update Animation */
+.score-updated {
+  animation: scoreUpdate 0.3s ease-in-out;
+}
+
+@keyframes scoreUpdate {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
 }
